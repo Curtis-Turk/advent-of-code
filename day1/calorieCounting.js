@@ -25,6 +25,9 @@ const calorieCounting = (inputData) => {
 
 sortedElves = calorieCounting(inputData).sort((a, b) => b - a);
 
+//part 1
+console.log(sortedElves[0]);
+//part 2
 console.log(sortedElves[0] + sortedElves[1] + sortedElves[2]);
 
 module.exports = calorieCounting;
