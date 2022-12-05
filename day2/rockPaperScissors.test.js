@@ -76,9 +76,7 @@ describe("part 2", () => {
       expect(fullStrategy(["A Z"])).toEqual(8);
     });
   });
-  describe("Multiple round", () => {
-    test("", () => {
-      expect(fullStrategy(["A X", "B Y", "C Z"])).toEqual(3 + 5 + 8);
-    });
+  test("mutliple rounds", () => {
+    expect(fullStrategy(["A X", "B Y", "C Z"])).toEqual(15);
   });
 });
