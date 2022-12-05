@@ -3,14 +3,10 @@ const fs = require("fs");
 const inputData = fs.readFileSync("./input.txt", "utf-8").split("\n");
 
 const rockPaperScissors = (inputData) => {
-  return (mapped = inputData
-    .map((round) => scoreRound(round))
-    .reduce((a, b) => a + b));
+  return inputData.map((round) => scoreRound(round)).reduce((a, b) => a + b);
 };
 
-const scoreRound = (round) => {
-  return myChoice[round[2]] + scoreObj[round];
-};
+const scoreRound = (round) => scoreObj[round] + myChoice[round[2]];
 
 const scoreObj = {
   "A X": 3,
@@ -29,5 +25,9 @@ const myChoice = {
   Y: 2,
   Z: 3,
 };
+
+// part 1
+console.log(rockPaperScissors(inputData));
+// part 2
 
 module.exports = rockPaperScissors;
