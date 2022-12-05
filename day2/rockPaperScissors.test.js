@@ -10,4 +10,10 @@ describe("single round", () => {
   test("draw with scissors", () => {
     expect(rockPaperScissors(["C Z"])).toEqual(6);
   });
+  test("lose with rock", () => {
+    expect(rockPaperScissors(["B X"])).toEqual(1);
+  });
+  test("win with rock", () => {
+    expect(rockPaperScissors(["C X"])).toEqual(7);
+  });
 });

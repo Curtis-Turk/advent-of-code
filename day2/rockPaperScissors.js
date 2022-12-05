@@ -3,25 +3,27 @@ const fs = require("fs");
 const inputData = fs.readFileSync("./input.txt", "utf-8").split("\n");
 
 const rockPaperScissors = (inputData) => {
-  // console.log({ inputData });
-  const me = inputData[0][0];
-  // const opp = inputData[2];
+  const me = inputData[0][2];
 
-  console.log(me);
-  return rpcScores[me] + 3;
+  return myChoice[me] + scoreObj[inputData[0]];
 };
 
-// rockPaperScissors(inputData);
+const scoreObj = {
+  "A X": 3,
+  "B Y": 3,
+  "C Z": 3,
+  "A Y": 6,
+  "B Z": 6,
+  "C X": 6,
+  "A Z": 0,
+  "B X": 0,
+  "C Y": 0,
+};
 
-let rpcScores = {
-  A: 1,
-  B: 2,
-  C: 3,
+const myChoice = {
   X: 1,
   Y: 2,
   Z: 3,
 };
-
-// console.log(rpcScores["A"]);
 
 module.exports = rockPaperScissors;
