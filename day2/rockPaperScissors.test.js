@@ -17,3 +17,9 @@ describe("single round", () => {
     expect(rockPaperScissors(["C X"])).toEqual(7);
   });
 });
+
+describe("multiple rounds", () => {
+  test("score mutliple rounds", () => {
+    expect(rockPaperScissors(["A X", "B Y", "C Z"])).toEqual(15);
+  });
+});
