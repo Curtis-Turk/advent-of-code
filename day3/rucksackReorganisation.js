@@ -2,15 +2,19 @@ const fs = require("fs");
 
 const inputData = fs.readFileSync("./input.txt", "utf-8").split("\n");
 
-inputData.forEach((rucksack) => {});
+const getSharedItems = (rucksack) => {
+  let firstSection = rucksack.slice(0, rucksack.length / 2).split("");
+  let secondSection = rucksack
+    .slice(rucksack.length / 2, rucksack.length)
+    .split("");
+  return firstSection.filter((value) => secondSection.includes(value));
+};
 
-let rucksack = inputData[0];
-let firstSection = rucksack.slice(0, rucksack.length / 2).split("");
-// .sort();
-let secondSection = rucksack
-  .slice(rucksack.length / 2, rucksack.length)
-  .split("");
-// .sort();
+const sharedArray = inputData.map((rucksack) => {
+  return getSharedItems(rucksack);
+});
 
-console.log(firstSection.filter((value) => secondSection.includes(value)));
-// console.log({ firstSection }, { secondSection });
+console.log(sharedArray);
+
+// console.log(getSharedItems(rucksack));
+module.exports = getSharedItems;
