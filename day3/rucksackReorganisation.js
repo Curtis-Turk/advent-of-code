@@ -14,7 +14,15 @@ const sharedArray = inputData.map((rucksack) => {
   return getSharedItems(rucksack);
 });
 
-console.log(sharedArray);
+const lower = "abcdefghijklmnopqrstuvwxyz";
+const fullPriorityList = lower + lower.toLocaleUpperCase();
 
-// console.log(getSharedItems(rucksack));
-module.exports = getSharedItems;
+console.log(fullPriorityList);
+
+const calculatePriority = (sharedArray) => {
+  return sharedArray.map((sharedLetter) => {
+    return fullPriorityList.indexOf(sharedLetter) + 1;
+  });
+};
+
+module.exports = { getSharedItems, calculatePriority };
