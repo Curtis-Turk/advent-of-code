@@ -1,4 +1,3 @@
-const { group } = require("console");
 const fs = require("fs");
 
 const inputData = fs.readFileSync("./input.txt", "utf-8").split("\n");
@@ -22,15 +21,7 @@ const calculatePriority = (letter) => {
   return fullPriorityList.indexOf(letter) + 1;
 };
 
-// Test Data
-const testInputData = fs.readFileSync("./testInput.txt", "utf-8").split("\n");
-
-const totalTest = testInputData
-  .map((rucksack) => getSharedItems(rucksack))
-  .map((letter) => calculatePriority(letter))
-  .reduce((a, b) => a + b);
-
-// Real Data
+// Getting total
 const total = inputData
   .map((rucksack) => getSharedItems(rucksack))
   .map((letter) => calculatePriority(letter))
@@ -38,6 +29,7 @@ const total = inputData
 
 // Part 2
 
+// building groups
 const makeGroupsOfThree = (data) => {
   const groupsOfThree = [];
   for (let i = 0; i < data.length; i += 3) {
@@ -47,6 +39,7 @@ const makeGroupsOfThree = (data) => {
   return groupsOfThree;
 };
 
+// Getting badges for each group
 const getGroupBadge = (group) => {
   let one = group[0].split("");
   let two = group[1].split("");
@@ -59,8 +52,8 @@ const getGroupBadge = (group) => {
   ];
 };
 
-// Test Data
-let groupTotal = makeGroupsOfThree(inputData)
+// Badge total
+const groupTotal = makeGroupsOfThree(inputData)
   .map((group) => getGroupBadge(group))
   .map((badge) => calculatePriority(badge))
   .reduce((a, b) => a + b);
